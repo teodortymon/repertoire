@@ -1,0 +1,14 @@
+{
+  "name": "repertuar-teatralny",
+  "author": "Teodor Wojcik",
+  "license": "Private",
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-cssmin": "^0.10.0",
+    "grunt-contrib-less": "~0.8.0",
+    "grunt-contrib-uglify": "~0.2.4",
+    "grunt-contrib-watch": "~0.5.3",
+    "livereloadx": "^0.3.6"
+  }
+}
