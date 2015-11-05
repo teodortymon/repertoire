@@ -9,9 +9,9 @@ module.exports = function (grunt) {
       },
       dist: {
         // the files to concatenate
-        src: ['js/jquery.js','js/moment-with-locales.js','js/database/cities/*.js','js/database/cities.js', 'js/*.js',],
+        src: ['js/jquery.js','js/moment-with-locales.js','database/cities/*.js','database/cities.js', 'js/*.js',],
         // the location of the resulting JS file
-        dest: 'dist/app.js'
+        dest: 'js/app.js'
       }
     },
         
@@ -22,7 +22,7 @@ module.exports = function (grunt) {
       },
       dist: {
         files: {
-          'dist/app.min.js': ['<%= concat.dist.dest %>']
+          'dist/app.min.js': ['js/app.js']
         }
       }
     },
