@@ -3,11 +3,10 @@
 var calendars = {};
 moment.locale('pl');
 
+
 $(document).ready( function() {
+
     
-    var city = 'warszawa';
-    var Database = { 'warszawa': warszawa, 'krakow': krakow };
-    var cityNames = { 'warszawa': 'Warszawa', 'krakow': 'Kraków'};
         
     $('.open-popup-link').magnificPopup();      //Popup initialize
     $('.menu').dropit();
@@ -46,10 +45,37 @@ $(document).ready( function() {
     var eventArray = [];
             
     var templateData = {'theatresList': _.keys(Database[city]['theatresEvents']), 'theatresNames': Database[city]['theatresNames']}; 
-    var template = _.template($("script#buttons-template").html(), templateData);
-    $("#buttons-theaters").html(template);    
+    var template = _.template($("script#theaters-template").html(), templateData);
+    $("#buttons-theaters").html(template);
+    
+    
+    var templateData = {'cityList': _.keys(cityNames)};
+    var template = _.template($("script#cities-template").html(), templateData);
+    $("#buttons-cities").html(template);
+    $("#"+city).toggleClass("inactive");
+    console.log(city);
+    
+    $("#buttons-cities").click(function( event ) {
+        var clickedCity = event.target.id;
+        console.log(clickedCity);
+        console.log(city);
+        
+        $("#"+city).toggleClass("inactive");
+        $("#"+clickedCity).toggleClass("inactive");
+        _.each(Database[city]['theatresEvents'], function (Rtheatre){
+            clndr.removeEvents(Rtheatre);
+        });
+        city = clickedCity;
+        console.log(city);
+        // $("#city-name").html(cityNames[city]);
+        templateData = {'theatresList': _.keys(Database[city]['theatresEvents']), 'theatresNames': Database[city]['theatresNames']}; 
+        template = _.template($("script#theaters-template").html(), templateData);
+        $("#buttons-theaters").html(template);
+        console.log(window.EventsThisMonth);
+    });
+    
             
-    $("#buttons-theaters").click(function( event ) {
+ $("#buttons-theaters").click(function( event ) {
         var clickedTheatre = event.target.id;
         console.log(clickedTheatre);
         $("#"+clickedTheatre).toggleClass("inactive");
@@ -62,18 +88,18 @@ $(document).ready( function() {
             };
         console.log(window.EventsThisMonth);
     });
-    $('.menu').dropit;
-    $( ".dropit" ).click(function( clicked ) {
-        _.each(Database[city]['theatresEvents'], function (Rtheatre){
-            clndr.removeEvents(Rtheatre);
-        });
-        city = clicked.target.id;
-        console.log(city);
-        $("#city-name").html(cityNames[city]);
-        templateData = {'theatresList': _.keys(Database[city]['theatresEvents']), 'theatresNames': Database[city]['theatresNames']}; 
-        template = _.template($("script#buttons-template").html(), templateData);
-    $("#buttons-theaters").html(template);
-    });
+    // $('.menu').dropit;
+    // $( ".dropit" ).click(function( clicked ) {
+    //     _.each(Database[city]['theatresEvents'], function (Rtheatre){
+    //         clndr.removeEvents(Rtheatre);
+    //     });
+    //     city = clicked.target.id;
+    //     console.log(city);
+    //     $("#city-name").html(cityNames[city]);
+    //     templateData = {'theatresList': _.keys(Database[city]['theatresEvents']), 'theatresNames': Database[city]['theatresNames']}; 
+    //     template = _.template($("script#buttons-template").html(), templateData);
+    // $("#buttons-theaters").html(template);
+    // });
     
     
     
