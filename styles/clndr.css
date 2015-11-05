@@ -3,7 +3,16 @@ body {
 /*    background: white;*/
     color:#F6F6F6;
     padding: 0px 30px 0px 30px;
+
 }
+
+
+html, button, input, select, textarea,
+.pure-g [class *= "pure-u"] {
+    /* Set your content font stack here: */
+    font-family: Georgia, Times, "Times New Roman", serif;
+}
+
 .container {
     
 }
@@ -48,7 +57,7 @@ html[xmlns] .clearfix {
 
 h1{
     text-align: center;
-    font-family: 'Raleway';
+    /*font-family: 'Raleway';*/
     font-size: 40px;
     color: white;
     text-shadow: 2px 2px 5px #000000;
