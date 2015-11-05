@@ -24,21 +24,18 @@
             <div class ="pure-u-sm-1 pure-u-md-1-5 noselect" id="buttons">
                 <div id="city">
                     <h3>Miasto</h3>
-                    <ul class="menu">
-                        <li>
-                            <a id="city-name" class="pure-button" href="#">Warszawa</a>
-                            <ul class="pure-button">
-                                <li><a class="pure-button" id='krakow' href="#">Kraków</a></li>
-                                <li><a class="pure-button" id='warszawa' href="#">Warszawa</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                      <script type="text/template" id="cities-template">
+                        <% _.each(cityList, function(city_id){ %>
+                          <button id="<%= city_id %>" class="pure-button inactive"><%= cityNames[city_id] %><% }); %>
+                      </script>
+                      <div id="buttons-cities">
+                      </div>
                 </div>
                 <h3>Teatry</h3>
-                <script type="text/template" id="buttons-template">
-                    <% _.each(theatresList, function(theatre){ %>
-                        <button id="<%= theatre %>" class="pure-button inactive"><%= theatresNames[theatre].substr(6) %><% }); %>
-                </script>
+                  <script type="text/template" id="theaters-template">
+                    <% _.each(theatresList, function(theatre_id){ %>
+                      <button id="<%= theatre_id %>" class="pure-button inactive"><%= theatresNames[theatre_id].substr(6) %><% }); %>
+                  </script>
                 <div id="buttons-theaters">
                 </div>
                 <br /><br />
