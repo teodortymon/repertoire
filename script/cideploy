@@ -1,0 +1,15 @@
+#!/bin/bash
+GH_REPO="@github.com/skonina/repertuar.git"
+
+FULL_REPO="https://$GH_TOKEN$GH_REPO"
+
+cd dist/
+
+git init
+git config user.name "skonina-travis"
+git config user.email "teodor.wojcik@gmail.com"
+
+git add .
+git commit -m "new travis deployment repertuar to github pages"
+git push --force --quiet $FULL_REPO master:gh-pages
+
