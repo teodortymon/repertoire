@@ -77,7 +77,7 @@ $(document).ready( function() {
             
  $("#buttons-theaters").click(function( event ) {
         var clickedTheatre = event.target.id;
-        console.log(clickedTheatre);
+        console.log(clickedTheatre, city);
         $("#"+clickedTheatre).toggleClass("inactive");
         if ($("#"+clickedTheatre).hasClass("inactive")) {
                 clndr.removeEvents(Database[city]['theatresEvents'][clickedTheatre]);

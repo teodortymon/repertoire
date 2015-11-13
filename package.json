@@ -4,6 +4,7 @@
   "license": "Private",
   "devDependencies": {
     "grunt": "*",
+    "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-concat": "*",
     "grunt-contrib-cssmin": "^0.10.0",
     "grunt-contrib-less": "~0.8.0",
