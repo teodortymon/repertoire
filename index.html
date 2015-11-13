@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Repertuar Teatralny">
+        <meta name="author" content="Teodor Wojcik">
+        <link rel="icon" href="../../favicon.ico">
+        <link rel="stylesheet" href="app.css">
+        <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+<!--<![endif]--><!--[if lte IE 8]>
+<!--        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Rokkitt:400,700|Raleway:400,300|Montserrat|Open+Sans:400italic,400|Roboto' rel='stylesheet' type='text/css'>-->
+        
+    </head>
+    
+    <h2>Repertuar Teatralny</h2>
+    <body class="noselect">
+        <div class="pure-g noselect">
+            <div class ="pure-u-sm-1 pure-u-md-1-5 noselect" id="buttons">
+                <div id="city">
+                    <h3>Miasto</h3>
+                      <script type="text/template" id="cities-template">
+                        <% _.each(cityList, function(city_id){ %>
+                          <button id="<%= city_id %>" class="pure-button inactive"><%= cityNames[city_id] %><% }); %>
+                      </script>
+                      <div id="buttons-cities">
+                      </div>
+                </div>
+                <h3>Teatry</h3>
+                  <script type="text/template" id="theaters-template">
+                    <% _.each(theatresList, function(theatre_id){ %>
+                      <button id="<%= theatre_id %>" class="pure-button inactive"><%= theatresNames[theatre_id].substr(6) %><% }); %>
+                  </script>
+                <div id="buttons-theaters">
+                </div>
+                <br /><br />
+            </div>
+
+            <div class="cal pure-u-sm-1 pure-u-md-3-5"></div>
+            <script type="text/template" id="template-calendar">
+                <div class="clndr-controls">
+                  <div class="clndr-previous-button">&lsaquo;</div>
+                  <div class="month"><%= month %></div>
+                  <div class="clndr-next-button">&rsaquo;</div>
+                </div>
+                <div class="clndr-grid">
+                  <div class="days-of-the-week">
+                    <% _.each(daysOfTheWeek, function(day) { %>
+                      <div class="header-day"><%= day %></div>
+                    <% }); %>
+                    <div class="days">
+                      <% _.each(days, function(day) { %>
+                        <div class="<%= day.classes %>"><%= day.day %></div>
+                      <% }); %>
+                    </div>
+                  </div>
+                </div>
+                <div class="clndr-today-button">Today</div>
+            </script>
+        </div>
+
+        <div class="popup mfp-hide" style="border-radius: 25px">
+            <h1>Popup</h1>
+            <h2>Spektakle</h2>
+            <p></p>
+            <canvas id="canvas"></canvas>
+        </div>
+        <a href=".popup" class="open-popup-link mfp-hide">Show inline popup</a>
+       
+        <script src="app.min.js"></script>
+
+    </body>
+    <footer>
+        <p> ~ <br />Teodor Wójcik & Zuzia Pela </p>
+    </footer>
+</html>
